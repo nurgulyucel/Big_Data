@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Casgem_BigData.props" />
+</Project>

@@ -1,0 +1,85 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>İstatistikler</title>
+    <style>
+        <style >
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f1f1f1;
+        }
+
+        /* Kart stili */
+        .card {
+            display: inline-block;
+            width: 200px;
+            height: 150px;
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+            /* Kart başlık stili */
+            .card h3 {
+                font-size: 16px;
+                color: #333;
+            }
+
+            /* Kart içerik stili */
+            .card p {
+                font-size: 20px;
+                color: #007bff;
+                margin-top: 5px;
+            }
+
+        .container {
+            width: 50%; /* Sayfa genişliğinin yüzde 80'ine ayarlandı */
+            margin: 0 auto; /* Yatayda merkezlemek için otomatik marj ekledik */
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">İstatistikler</h1>
+    <div class="container">
+    <div style="text-align: center;" class="card">
+        <h3>Sedan Araç Sayısı:</h3>
+        <p>@ViewBag.SedanPlateCount</p>
+    </div>
+    <div style="text-align: center;" class="card">
+        <h3>Benzinli Araç Sayısı:</h3>
+        <p>@ViewBag.BenzinPlateCount</p>
+    </div>
+    <div style="text-align: center;" class="card">
+        <h3>Toplam Araç Sayısı:</h3>
+        <p>@ViewBag.TotalCarCount</p>
+    </div>
+    <br/> <br/>
+    <div style="text-align: center;" class="card">
+        <h3>Düz Vitesli Araç Sayısı:</h3>
+        <p>@ViewBag.DuzPlateCount</p>
+    </div>
+    <div style="text-align: center;" class="card">
+        <h3>Yarı Otomatik Araç Sayısı:</h3>
+        <p>@ViewBag.YariOtomatikPlateCount</p>
+    </div>
+    <div style="text-align: center;" class="card">
+        <h3>En Çok Bulunan Model:</h3>
+        <p>@ViewBag.EnYayginModel</p>
+    </div>
+    </div>
+</body>
+</html>

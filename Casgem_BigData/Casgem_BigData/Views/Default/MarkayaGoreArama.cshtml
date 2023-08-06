@@ -1,0 +1,171 @@
+﻿@model IEnumerable<Casgem_BigData.Dal.Entities.Carplates>
+@{
+    ViewData["Title"] = "MarkayaGoreArama";
+    Layout = null;
+}
+
+<link rel="stylesheet" href="~/css/styles.css" />
+
+<head>
+<style>
+    /* Tablo tasarımı */
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #ccc;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    /* Form tasarımı */
+    form {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input[type="text"] {
+        width: 200px;
+        padding: 5px;
+    }
+
+    button {
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    /* Arama Sonuçları başlığı */
+    
+
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            flex-grow: 1;
+            text-align: right;
+        }
+
+        .menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+            .menu li {
+                display: inline-block;
+                margin-left: 20px;
+            }
+
+            .menu a {
+                text-decoration: none;
+                color: white;
+                font-size: 16px;
+                padding: 5px 10px;
+                border-radius: 5px;
+            }
+
+                .menu a:hover {
+                    background-color: #4CAF50;
+                }
+
+
+
+
+</style>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <ul class="menu">
+                <li><a href="/Default/MarkayaGoreArama/">Ara</a></li>
+                <li><a href="@Url.Action("Index", "Istatislikler")">İstatistik</a></li>
+            </ul>
+        </nav>
+    </header>
+    <br/> <br/> <br/>
+<div class="container">
+<form method="post" action="@Url.Action("MarkayaGoreArama", "Default")">
+    <label for="brandInput">Marka:</label>
+    <input type="text" id="brandInput" name="brand" />
+    <button type="submit">Ara</button>
+</form>
+    </div>
+@if (Model != null)
+{
+    <h3>Arama Sonuçları:</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Plaka</th>
+                <th>Marka</th>
+                <th>Seri</th>
+                <th>Model</th>
+                <th>Yıl</th>
+                <th>Yakıt</th>
+                <th>Vites</th>
+                <th>Motor Hacmi</th>
+                <th>Motor Gücü</th>
+                <th>Renk</th>
+                <th>Kasa Tipi</th>
+                <th>Lisans Tarihi</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var plate in Model)
+            {
+                <tr>
+                    <td>@plate.PLATE</td>
+                    <td>@plate.BRAND</td>
+                    <td>@plate.MODEL</td>
+                    <td>@plate.TITLE</td>
+                    <td>@plate.YEAR_</td>
+                    <td>@plate.FUEL</td>
+                    <td>@plate.SHIFTTYPE</td>
+                    <td>@plate.MOTORVOLUME</td>
+                    <td>@plate.MOTORPOWER</td>
+                    <td>@plate.COLOR</td>
+                    <td>@plate.CASETYPE</td>
+                    <td>@plate.LICENCEDATE</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+</body>
